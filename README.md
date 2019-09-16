@@ -9,60 +9,20 @@ In the project directory, you can run:
 Runs the app in the development mode.<br>
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+### How this app works? (Part 1)
+The javascript object that contains the event data can be found at https://gist.github.com/taddison/ab00ecd1a2703fa661b4f7a9ccf46267.
+The website displays a list of events for one artist, Elton John, and shows the user all the important information (Date, Time, Venue, City) that a customer would want to know when deciding on which event to go to.
 
-### `npm test`
+### How this app works? (Part 2) 
+A filter allows the user to filter by location. 
+The filter shows a full list of locations. The locations are grabbed from the JS object provided and also takes care of duplicates.
+When the user removes all cities from the filter, all events are displayed. 
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Part 3 (Not Implemented)
+Why the filter implemented in part 2 did not help the customer experience?
+It turned out that, in the given object, all the locations were unique and when filtered, it would only show one event. 
+How to improve on it?
+An advanced search could be set up. The other options could include sorting by date, by price, setting a range of either or a maximum price. The object contains other information that could be used such as the number of tickets left and the venue capacity can be used to show which events are selling out quickly. These would give the customer more options to better match their wants.
 
-### `npm run build`
-
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+### How I built the app and why?
+I kept the JS object as it was. The alternative would be be to import the data in a JSON format. That way, I could have set up some APIs to fetch the required data. But, for the scope of this project, some array manipulation sufficed. I used React because I wanted to use its lifecycle. When the user selects their location, the change in state will cause the components to re-render. This made the app dynamic. There was only a small volume of data to play with, so I strayed away from expensive API calls. I used Semantic UI to make it more appealing. 
